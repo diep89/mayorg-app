@@ -1,0 +1,25 @@
+.centrar {
+  width: 100%;
+  margin: auto;
+}
+
+// It's recommended to use pixel sizes that are a multiple of 8 (8, 16, 32, 64, etc.)
+// .reportar-icon {
+//   font-size: 64px;
+// }
+
+.tarjeta {
+  color: azure;
+  background: rgba(var(--ion-color-fondoRespuesta-rgb), 0.3);
+}
+
+.letra-blanca {
+  color: azure;
+}
+
+.imagen {
+  width: 100%;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

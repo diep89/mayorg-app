@@ -1,0 +1,101 @@
+<ion-app>
+  <ion-menu side="start" type="overlay">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>
+          Mayor G
+        </ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content
+      style="--color: white; --background: linear-gradient(to left, #0b1709, #2e3f28, #576b44, #879a61, #becb7e);"
+    >
+      <ion-menu-toggle>
+        <ion-item
+          lines="none"
+          routerLink="/"
+          button
+          style="--background: transparent"
+        >
+          <ion-icon name="home" slot="start"> </ion-icon>
+          <ion-label style="font-weight: bold;"> Inicio</ion-label>
+        </ion-item>
+
+        <ion-item
+          lines="none"
+          routerLink="/ranking"
+          button
+          style="--background: transparent"
+        >
+          <ion-icon name="trophy" slot="start"> </ion-icon>
+          <ion-label style="font-weight: bold;">Ranking</ion-label>
+        </ion-item>
+
+        <ion-item
+          lines="none"
+          routerLink="/colaborar"
+          button
+          style="--background: transparent"
+        >
+          <ion-icon name="send" slot="start"> </ion-icon>
+          <ion-label style="font-weight: bold;">Colaborar</ion-label>
+        </ion-item>
+
+        <ion-item
+          lines="none"
+          routerLink="/settings"
+          button
+          style="--background: transparent"
+        >
+          <ion-icon name="settings" slot="start"> </ion-icon>
+          <ion-label style="font-weight: bold;">Ajustes</ion-label>
+        </ion-item>
+
+        <ion-item
+          lines="none"
+          routerLink="/help"
+          button
+          style="--background: transparent"
+        >
+          <ion-icon name="help-circle" slot="start"> </ion-icon>
+          <ion-label style="font-weight: bold;">Ayuda</ion-label>
+        </ion-item>
+
+        <ion-item lines="none" style="--background: transparent"> </ion-item>
+
+        <ion-item
+          lines="none"
+          routerLink="/acercade"
+          button
+          style="--background: transparent"
+        >
+          <ion-icon name="information-circle" slot="start"> </ion-icon>
+          <ion-label style="font-weight: bold;">Acerca de</ion-label>
+        </ion-item>
+
+        <ion-item
+          lines="none"
+          (click)="onLogout()"
+          button
+          style="--background: transparent"
+        >
+          <ion-icon name="exit" slot="start"> </ion-icon>
+          <ion-label style="font-weight: bold;">Logout</ion-label>
+        </ion-item>
+
+        <ion-item
+          lines="none"
+          (click)="onExit()"
+          button
+          style="--background: transparent"
+        >
+          <ion-icon name="power" slot="start"> </ion-icon>
+          <ion-label style="font-weight: bold;">Salir</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+    </ion-content>
+  </ion-menu>
+
+  <ion-router-outlet main></ion-router-outlet>
+</ion-app>

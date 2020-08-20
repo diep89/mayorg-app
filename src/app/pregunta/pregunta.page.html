@@ -1,0 +1,162 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button defaultHref="/home" (click)="backHome()">
+        <ion-label>Volver al inicio</ion-label>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content
+  style="--background: url('/assets/img/background04.jpg') no-repeat center center fixed"
+>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-md="8" offset-md="2" text-center>
+        <!-- <ion-progress-bar
+          color="amarillo"
+          value="getTimer()"
+          type="determinate"
+          padding
+        ></ion-progress-bar> -->
+        <ion-card id="pregunta" class="ion-text-center" padding>
+          <ion-card-title class="ion-text-center">
+            <ion-item
+              style="--background: transparent"
+              class="ion-text-center"
+              *ngIf="pregunta.nivel === 1"
+            >
+              <div class="contenedorEstrella">
+                <img src="/../../assets/img/star.png" />
+              </div>
+            </ion-item>
+            <ion-item
+              style="--background: transparent"
+              class="ion-text-center"
+              *ngIf="pregunta.nivel === 2"
+            >
+              <div class="contenedorEstrella2">
+                <div class="estrella2">
+                  <img src="/../../assets/img/star.png" />
+                </div>
+                <div class="estrella2">
+                  <img src="/../../assets/img/star.png" />
+                </div>
+              </div>
+            </ion-item>
+            <ion-item
+              style="--background: transparent"
+              class="ion-text-center"
+              *ngIf="pregunta.nivel === 3"
+            >
+              <div class="contenedorEstrella3">
+                <div class="estrella3">
+                  <img src="/../../assets/img/star.png" />
+                </div>
+                <div class="estrella3">
+                  <img src="/../../assets/img/star.png" />
+                </div>
+                <div class="estrella3">
+                  <img src="/../../assets/img/star.png" />
+                </div>
+              </div>
+            </ion-item>
+          </ion-card-title>
+          <ion-card-content>
+            <ion-text color="light" style="font-size: 20px;">
+              {{ pregunta.pregunta }}
+            </ion-text>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size-md="8" offset-md="2">
+        <ion-progress-bar
+          [color]="getColorProgressBar()"
+          [value]="getTimer()"
+        ></ion-progress-bar>
+      </ion-col>
+    </ion-row>
+
+    <!-- Se activa si la pregunta tiene imagen -->
+    <ion-row align-items-center>
+      <ion-col
+        size-md="6"
+        offset-md="3"
+        text-center
+        align-self-center
+        style="margin-top: 10px;"
+      >
+        <ion-item
+          style="--ion-item-background: transparent"
+          lines="none"
+          text-center
+          *ngIf="pregunta.foto !== null"
+        >
+          <img
+            class="imagen"
+            style="width: 100%; height: auto;"
+            [src]="['http://192.168.0.150/MayorG1/img/' + pregunta.foto]"
+          />
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <!-- Armo una lista con las 4 preguntas -->
+    <!-- Fila: Respuestas 1-4 -->
+    <!-- [style.backgroundColor]="rgba(244, 244, 244, 0.3)" -->
+    <!-- style="--ion-item-border-color: var(--ion-color-amarillo), --ion-item-background: rgba(var(--ion-color-fondoRespuesta-rgb), 1)" -->
+    <!--   -->
+    <ion-row>
+      <ion-col size-md="8" offset-md="2">
+        <ion-list id="lista">
+          <!-- color="fondoRespuesta" -->
+          <ion-item
+            button
+            class="item-respuesta ion-text-center"
+            style="--background: rgba(var(--ion-color-fondoRespuesta-rgb), 0.5)"
+            lines="none"
+            *ngFor="let respuesta of pregunta.respuestas; let i = index"
+            (click)="comprobarRespuesta(i, false)"
+          >
+            <ion-label text-center text-wrap>
+              {{ respuesta }}
+            </ion-label>
+          </ion-item>
+          <!-- <ion-item
+            id="respuesta"
+            padding
+            type="button"
+            lines="none"
+            class="ion-text-center"
+            *ngFor="let respuesta of pregunta.respuestas; let i = index"
+            (click)="comprobarRespuesta(i)"
+          >
+            <ion-label text-center text-wrap>
+              {{ respuesta }}
+            </ion-label>
+          </ion-item> -->
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<!-- Backup: item > button > label -->
+
+<!-- 
+<ion-item
+class="item-respuesta ion-text-center"
+lines="none"
+*ngFor="let respuesta of pregunta.respuestas; let i = index"
+(click)="comprobarRespuesta(i)"
+>
+<ion-button class="btn-respuesta">
+  <ion-label text-center text-wrap>
+    {{ respuesta }}
+  </ion-label>
+</ion-button>
+</ion-item> -->

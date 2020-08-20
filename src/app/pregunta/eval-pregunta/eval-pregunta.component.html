@@ -1,0 +1,122 @@
+<ion-header color="primary">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button defaultHref="/home" (click)="backHome()">
+        <ion-label>Volver al inicio</ion-label>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button defaultHref="/home" (click)="reportarPregunta()">
+        <ion-label>Reportar</ion-label>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="primary">
+  <ion-grid>
+    <ion-row>
+      <ion-col size-md="6" offset-md="3" text-center align-self-center>
+        <ion-item style="--background: transparent;" *ngIf="resultadoRespuesta">
+          <ion-img src="../../../assets/img/mayorContento.gif"> </ion-img>
+        </ion-item>
+        <ion-item
+          style="--background: transparent;"
+          *ngIf="!resultadoRespuesta"
+        >
+          <ion-img src="../../../assets/img/mayorEnojado.gif"> </ion-img>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="!resultadoRespuesta && !timeout">
+      <ion-col size-xs="12" size-md="6" offset-md="3">
+        <ion-item
+          text-center
+          lines="none"
+          style="--background: transparent"
+          *ngIf="!resultadoRespuesta && !timeout"
+        >
+          <ion-label color="light" text-wrap>
+            Para encontrar la respuesta lea la prescripción:
+          </ion-label>
+        </ion-item>
+      </ion-col>
+      <ion-col size-xs="12" size-md="12">
+        <ion-item
+          text-center
+          lines="none"
+          style="--background: transparent"
+          *ngIf="!resultadoRespuesta && !timeout"
+        >
+          <div class="centrar">
+            <ion-card color="light">
+              <ion-card-header>
+                <ion-label text-wrap id="pres">
+                  <div class="ion-text-uppercase">
+                    {{ pregunta.prescripcion }}
+                  </div>
+                </ion-label>
+              </ion-card-header>
+
+              <ion-card-content>
+                <ion-label id="tema" text-wrap>
+                  {{ pregunta.tema }}
+                </ion-label>
+              </ion-card-content>
+            </ion-card>
+          </div>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-md="8" offset-md="2">
+        <ion-item
+          text-center
+          lines="none"
+          style="--background: transparent"
+          *ngIf="resultadoRespuesta"
+        >
+          <div class="centrar">
+            <ion-label text-wrap id="pres" color="light">
+              ¡Respuesta correcta!
+            </ion-label>
+          </div>
+        </ion-item>
+        <ion-item
+          text-center
+          lines="none"
+          style="--background: transparent"
+          *ngIf="!resultadoRespuesta && timeout"
+        >
+          <div
+            class="centrar"
+            style="--background: rgba(var(--ion-color-danger),0.2);"
+          >
+            <ion-label text-wrap id="pres" color="light">
+              ¡Te quedaste sin tiempo!
+            </ion-label>
+          </div>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-md="6" offset-md="3">
+        <ion-item lines="none" style="--background: transparent" text-center>
+          <div class="centrar">
+            <ion-button
+              color="light"
+              fill="outline"
+              size="large"
+              strong="true"
+              (click)="siguientePregunta()"
+            >
+              <ion-label color="amarillo">
+                Continuar
+              </ion-label>
+            </ion-button>
+          </div>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

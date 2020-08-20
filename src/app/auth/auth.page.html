@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title id="titulo" color="amarillo">Autenticación</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content
+  margin
+  style="--color: white; --background: linear-gradient(to top, #0b1709, #2e3f28, #576b44, #879a61, #becb7e);"
+>
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <ion-grid>
+      <ion-row>
+        <ion-col size-sm="4" offset-sm="4">
+          <ion-item style="--background: transparent">
+            <ion-label position="floating"> Usuario </ion-label>
+            <ion-input
+              type="text"
+              ngModel
+              name="usuario"
+              required
+              #userCtrl="ngModel"
+            ></ion-input>
+          </ion-item>
+          <ion-item
+            style="--background: transparent"
+            lines="none"
+            *ngIf="!userCtrl.valid && userCtrl.touched"
+          >
+            <ion-label>
+              Ingrese un usuario válido
+            </ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-sm="4" offset-sm="4">
+          <ion-item style="--background: transparent">
+            <ion-label position="floating"> Contraseña </ion-label>
+            <ion-input
+              type="password"
+              ngModel
+              name="password"
+              required
+              minlength="6"
+              #passCtrl="ngModel"
+            ></ion-input>
+          </ion-item>
+          <ion-item
+            style="--background: transparent"
+            lines="none"
+            *ngIf="!passCtrl.valid && passCtrl.touched"
+          >
+            <ion-label>
+              Ingrese una contraseña válida
+            </ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-sm="4" offset-sm="4">
+          <ion-button
+            color="primary"
+            (click)="onLogin()"
+            style="margin-top: 40px"
+            expand="block"
+            type="submit"
+            [disabled]="!f.valid"
+          >
+            <ion-label color="amarillo">
+              Ingresar
+            </ion-label>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

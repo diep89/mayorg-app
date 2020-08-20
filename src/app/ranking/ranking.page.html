@@ -1,0 +1,108 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"> </ion-back-button>
+    </ion-buttons>
+    <ion-title>Ranking</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content
+  style="--color: white; --background: url('/assets/img/background04.jpg') no-repeat center center fixed"
+>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-sm="6" offset-sm="3">
+        <div id="trofeo">
+          <ion-img src="/../../assets/img/trofeo.png"></ion-img>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- {{ estadisticasJugador.puntosJugador }} puntos totales -->
+  <!-- <ion-card>
+    <ion-card-title text-center>
+    </ion-card-title>
+  </ion-card> -->
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size-sm="6" offset-sm="3">
+        <ion-card
+          style="--background: rgba(var(--ion-color-fondoRespuesta-rgb), 0.2)"
+        >
+          <ion-card-header>
+            <ion-card-title text-center>
+              <ion-item style="--background: transparent">
+                <ion-label text-center color="primary">
+                  <h1 style="font-weight: bold">
+                    RANKING ACTUAL
+                  </h1>
+                </ion-label>
+              </ion-item>
+            </ion-card-title>
+            <ion-card-content text-center>
+              <ion-text id="text" color="primary" style="font-weight: bold">
+                <ion-label
+                  style="margin-right: 20px;"
+                  color="amarillo"
+                  id="posicion"
+                >
+                  {{ estadisticasJugador.posicion }}
+                </ion-label>
+                de
+                <ion-label
+                  style="margin-left: 20px;"
+                  color="amarillo"
+                  id="totalJugadores"
+                >
+                  {{ estadisticasJugador.totalJugadores }}
+                </ion-label>
+              </ion-text>
+            </ion-card-content>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size-md="4" offset-md="2">
+        <ion-card color="primary">
+          <ion-card-header>
+            <ion-card-title text-center>
+              <ion-text color="amarillo">
+                Preguntas correctas
+              </ion-text>
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content text-center>
+            <ion-text color="amarillo">
+              <p>
+                {{ estadisticasJugador.correctas }}
+              </p>
+            </ion-text>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size-md="4">
+        <ion-card id="incorrectas">
+          <ion-card-header>
+            <ion-card-title text-center color="danger">
+              Preguntas incorrectas
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content text-center>
+            <ion-text color="danger">
+              <p>
+                {{ estadisticasJugador.incorrectas }}
+              </p>
+            </ion-text>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
